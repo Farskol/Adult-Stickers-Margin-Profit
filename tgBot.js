@@ -5,7 +5,7 @@ const bot = new TelegramBot('5997079179:AAGGzi65hhsZv6LRhJ_q3Yk5OKZXSOuOcNw', {
     polling: true
 });
 bot.onText(/start/, async (msg) => {
-    // console.log(msg)
+    console.log(msg)
     let today = new Date();
     let day = String(today.getDate()).padStart(2,'0') - 1;
     let month = String(today.getMonth()+1).padStart(2,'0');
