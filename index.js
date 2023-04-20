@@ -54,6 +54,7 @@ module.exports.getInfo =  async (date) => {
     await bot.sendDocument(`./screenshots/screenshot${date}.jpg`)
 }
 
-// cron.schedule('18 16 * * 1,2,3,4,5', async () => {
-//     await getInfo(today);
-// })
+cron.schedule('30 13 * * 1,2,3,4,5', async () => {
+    console.log('start');
+    await this.getInfo(today);
+})
