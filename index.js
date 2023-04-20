@@ -15,6 +15,7 @@ today = day + '.' + month + '.' + year;
 
 module.exports.getInfo =  async (date) => {
     const browser = await puppeteer.launch({
+        executablePath: this.chrome,
         headless: true,
         args: [
             '--no-sandbox',
