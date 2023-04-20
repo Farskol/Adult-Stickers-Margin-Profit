@@ -24,7 +24,7 @@ module.exports.getInfo =  async (date) => {
         ]
     });
 
-    const url = "https://www.google.com";
+    const url = "https://www.youtube.com";
 
     const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AplleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36'
 
@@ -38,8 +38,9 @@ module.exports.getInfo =  async (date) => {
     // await page.type('input[type="password"]', googlePassword);
     // await page.keyboard.press('Enter');
     // await page.waitForTimeout(10000);
-    const element = await page.$('#waffle-grid-container');
-    await element.screenshot({path: `./screenshots/screenshot${date}.jpg`})
+    // const element = await page.$('#waffle-grid-container');
+    // await element.screenshot({path: `./screenshots/screenshot${date}.jpg`})
+    await page.screenshot({path: `./screenshots/screenshot${date}.jpg`});
     await browser.close();
 
     let message = 'Отчет по продажам Адалт наклеек:\nЗа ' + today + '\n' + await googleSheet.getInformation(today);
