@@ -25,6 +25,7 @@ module.exports.getInfo =  async (date) => {
     });
 
     const url = "https://www.google.com";
+
     // const url = "https://docs.google.com/spreadsheets/d/1B90Z9gIBN8KnQUUq9KDZbN46Egc4HtbpCvu6Px2fw1Y/edit#gid=1552784607";
 
     const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AplleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36'
