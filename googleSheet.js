@@ -43,10 +43,11 @@ module.exports.getInformation = async function start(data){
             marginPerDay = '$' + marginPerDay.toFixed(2);
         }
 
-        return 'количество продаж в день ' + numberOfSalesPerDay + '\n' +
-            'накопительное количество продаж ' + cumulativeNumberOfSales + '\n' +
-            'маржинальная прибыль в день ' + marginPerDay + '\n' +
-            'накопительная маржинальная прибыль в день $' + cumulativeMarginPerDay.toFixed(2)
+        return 'Количество продаж: ' + numberOfSalesPerDay + '\n' +
+            'Маржинальная прибыль: ' + marginPerDay + '\n\n' +
+            'За месяц с (1 числа):\n' +
+            'Количество продаж: ' + cumulativeNumberOfSales + '\n' +
+            'Маржинальная прибыль: $' + cumulativeMarginPerDay.toFixed(2)
     }
     catch (e){
         console.log(e)

@@ -13,7 +13,7 @@ let month = String(today.getMonth()+1).padStart(2,'0');
 let year = today.getFullYear();
 today = day + '.' + month + '.' + year;
 
-const getInfo = async (date) => {
+module.exports.getInfo =  async (date) => {
     const browser = await puppeteer.launch({
         headless: true,
         args: [
@@ -41,11 +41,11 @@ const getInfo = async (date) => {
     await element.screenshot({path: `./screenshots/screenshot${date}.jpg`})
     await browser.close();
 
-    let message = today + '\n' + await googleSheet.getInformation(today);
+    let message = 'Отчет по продажам Адалт наклеек:\nЗа ' + today + '\n' + await googleSheet.getInformation(today);
     await bot.sendMessage(message);
     await bot.sendDocument(`./screenshots/screenshot${date}.jpg`)
 }
 
-cron.schedule('30 15 * * 1,2,3,4,5', async () => {
-    await getInfo(today);
-})
+// cron.schedule('18 16 * * 1,2,3,4,5', async () => {
+//     await getInfo(today);
+// })
