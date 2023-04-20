@@ -24,23 +24,26 @@ module.exports.getInfo =  async (date) => {
         ]
     });
 
-    const url = "https://www.youtube.com";
+    const url = "https://docs.google.com/spreadsheets/d/1B90Z9gIBN8KnQUUq9KDZbN46Egc4HtbpCvu6Px2fw1Y/edit#gid=1552784607";
 
     const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AplleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.91 Mobile Safari/537.36'
 
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
     await page.setUserAgent(ua);
-    await page.goto(url, {waitUntil: 'networkidle2'});
+    await page.goto(url, {
+        waitUntil: 'networkidle2',
+        timeout: 60000
+    });
     // await page.type('input[type="email"]', googleUsername);
     // await page.keyboard.press('Enter');
     // await page.waitForTimeout(5000);
     // await page.type('input[type="password"]', googlePassword);
     // await page.keyboard.press('Enter');
     // await page.waitForTimeout(10000);
-    // const element = await page.$('#waffle-grid-container');
-    // await element.screenshot({path: `./screenshots/screenshot${date}.jpg`})
-    await page.screenshot({path: `./screenshots/screenshot${date}.jpg`});
+    const element = await page.$('#waffle-grid-container');
+    await element.screenshot({path: `./screenshots/screenshot${date}.jpg`})
+    // await page.screenshot({path: `./screenshots/screenshot${date}.jpg`});
     await browser.close();
 
     let message = 'Отчет по продажам Адалт наклеек:\nЗа ' + today + '\n' + await googleSheet.getInformation(today);
